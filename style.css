@@ -1,0 +1,803 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    font-family: "Quicksand", sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #fff0f5,
+        #ffe4ec,
+        #fff7fa
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #6d3949;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+.heart {
+    position: absolute;
+
+    bottom: -50px;
+
+    font-size: 32px;
+
+    opacity: 0.55;
+
+    animation: float 8s linear infinite;
+}
+
+
+/* Different heart sizes */
+
+.heart:nth-child(1) {
+    left: 8%;
+
+    font-size: 38px;
+
+    animation-delay: 0s;
+}
+
+
+.heart:nth-child(2) {
+    left: 25%;
+
+    font-size: 28px;
+
+    animation-delay: 2s;
+}
+
+
+.heart:nth-child(3) {
+    left: 47%;
+
+    font-size: 42px;
+
+    animation-delay: 4s;
+}
+
+
+.heart:nth-child(4) {
+    left: 70%;
+
+    font-size: 30px;
+
+    animation-delay: 1s;
+}
+
+
+.heart:nth-child(5) {
+    left: 88%;
+
+    font-size: 45px;
+
+    animation-delay: 3s;
+}
+
+
+@keyframes float {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(0.8);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.55;
+    }
+
+    80% {
+        opacity: 0.55;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(25deg)
+            scale(1.1);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MAIN ENVELOPE SCREEN
+========================= */
+
+.scene {
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+}
+
+
+.small-text {
+    font-family: "Caveat", cursive;
+
+    font-size: 22px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 28px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope-wrapper {
+    position: relative;
+
+    width: 300px;
+    height: 210px;
+
+    margin: auto;
+
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+}
+
+
+.envelope-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+
+.envelope {
+    position: absolute;
+
+    width: 300px;
+    height: 190px;
+
+    bottom: 0;
+
+    background: #f7a6ba;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 18px 35px rgba(150, 60, 90, 0.18);
+
+    overflow: visible;
+}
+
+
+/* =========================
+   ENVELOPE BOTTOM FOLD
+========================= */
+
+.envelope::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 110px solid #ef91aa;
+
+    z-index: 4;
+}
+
+
+/* =========================
+   ENVELOPE SIDE FOLD
+========================= */
+
+.envelope::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-top: 95px solid transparent;
+    border-bottom: 95px solid transparent;
+    border-left: 150px solid #f39bb1;
+
+    z-index: 3;
+}
+
+
+/* =========================
+   ENVELOPE FLAP
+========================= */
+
+.flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #f8b0c2;
+
+    transform-origin: top center;
+
+    transition:
+        transform 0.8s ease;
+
+    z-index: 6;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    position: absolute;
+
+    width: 245px;
+    height: 150px;
+
+    background: #fffdfd;
+
+    left: 27px;
+    top: 35px;
+
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+    color: #9a5267;
+
+    box-shadow:
+        0 5px 15px rgba(100, 50, 70, 0.12);
+
+    transition:
+        transform 1s ease,
+        top 1s ease;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   HEART SEAL
+========================= */
+
+.seal {
+    position: absolute;
+
+    left: 50%;
+    top: 78px;
+
+    transform: translateX(-50%);
+
+    width: 45px;
+    height: 45px;
+
+    background: #d95b78;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    font-size: 21px;
+
+    z-index: 8;
+
+    box-shadow:
+        0 5px 12px rgba(140, 40, 65, 0.2);
+
+    transition:
+        opacity 0.4s ease;
+}
+
+
+/* =========================
+   CLICK TEXT
+========================= */
+
+.click-text {
+    margin-top: 28px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 20px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.65;
+
+    animation:
+        breathe 2s ease-in-out infinite;
+}
+
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 0.9;
+    }
+}
+
+
+/* =========================
+   OPEN ENVELOPE
+========================= */
+
+.opened .flap {
+    transform: rotateX(180deg);
+
+    z-index: 1;
+}
+
+
+.opened .letter {
+    top: -85px;
+
+    transform: translateY(-5px);
+
+    z-index: 5;
+}
+
+
+.opened .seal {
+    opacity: 0;
+}
+
+
+.opened .click-text {
+    opacity: 0;
+}
+
+
+/* =========================
+   GREETING SCREEN
+========================= */
+
+.greeting {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        rgba(255, 240, 246, 0.97);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(1.05);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+    z-index: 20;
+}
+/* =========================
+   GREETING CONTENT
+========================= */
+
+.greeting-content {
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =========================
+   STICKERS
+========================= */
+
+.sticker {
+    position: absolute;
+
+    width: 150px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    z-index: 2;
+
+    opacity: 0;
+
+    filter: drop-shadow(
+        0 8px 12px rgba(120, 50, 70, 0.12)
+    );
+}
+
+
+/* Left upper sticker */
+
+.sticker-kiss {
+    left: 8%;
+    top: 18%;
+
+    transform:
+        rotate(-8deg)
+        scale(0.8);
+
+    animation:
+        stickerAppear 0.8s ease forwards;
+
+    animation-delay: 0.5s;
+}
+
+
+/* Right upper sticker */
+
+.sticker-heart {
+    right: 8%;
+    top: 15%;
+
+    width: 125px;
+
+    transform:
+        rotate(8deg)
+        scale(0.8);
+
+    animation:
+        stickerAppear 0.8s ease forwards;
+
+    animation-delay: 0.8s;
+}
+
+
+/* Left bottom sticker */
+
+.sticker-cuddle {
+    left: 10%;
+    bottom: 12%;
+
+    width: 170px;
+
+    transform:
+        rotate(6deg)
+        scale(0.8);
+
+    animation:
+        stickerAppear 0.8s ease forwards;
+
+    animation-delay: 1.1s;
+}
+
+
+/* Right bottom sticker */
+
+.sticker-flower {
+    right: 9%;
+    bottom: 10%;
+
+    width: 145px;
+
+    transform:
+        rotate(-6deg)
+        scale(0.8);
+
+    animation:
+        stickerAppear 0.8s ease forwards;
+
+    animation-delay: 1.4s;
+}
+
+
+/* Sticker entrance */
+
+@keyframes stickerAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.5)
+            rotate(0deg);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   CONTINUE BUTTON
+========================= */
+
+.continue-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    background: #ff97dc;
+    color: rgba(255, 255, 255, 0.87);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 108, 218, 0.842);
+}
+
+/* Hover effect */
+.continue-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    background: #ff6cdf;
+    box-shadow: 0 8px 20px rgba(255, 105, 197, 0.979);
+}
+
+/* When clicked */
+.continue-btn:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+
+.continue-btn:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 9px 20px rgba(170, 70, 100, 0.2);
+}
+
+
+.greeting.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+
+/* Small heading */
+
+.greeting .tiny {
+    font-family: "Quicksand", sans-serif;
+
+    font-size: 16px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+
+    opacity: 0.75;
+}
+
+
+/* Main heading */
+
+.greeting h1 {
+    font-family: "Caveat", cursive;
+
+    font-size:
+        clamp(45px, 9vw, 80px);
+
+    font-weight: 600;
+
+    color: #b84f6b;
+
+    animation:
+        appear 1.5s ease forwards;
+}
+
+
+/* Bachaa */
+
+.greeting h2 {
+    margin-top: 8px;
+
+    font-family: "Caveat", cursive;
+
+    font-size:
+        clamp(30px, 6vw, 45px);
+
+    font-weight: 500;
+
+    color: #7b4051;
+}
+
+
+/* Small message */
+
+.message {
+    margin-top: 25px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 24px;
+
+    opacity: 0;
+
+    animation:
+        fadeMessage 1s ease forwards;
+
+    animation-delay: 1.2s;
+}
+
+
+/* =========================
+   GREETING ANIMATIONS
+========================= */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes fadeMessage {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+        opacity: 0.85;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .envelope-wrapper {
+        transform: scale(0.85);
+    }
+
+
+    .envelope-wrapper:hover {
+        transform: scale(0.85);
+    }
+
+
+    .small-text {
+        margin-bottom: 15px;
+    }
+
+
+    .greeting h1 {
+        padding: 0 20px;
+    }
+
+
+    .heart {
+        opacity: 0.45;
+    }
+} @media (max-width: 600px) {
+
+    .sticker {
+        width: 100px;
+    }
+
+    .sticker-kiss {
+        left: 2%;
+        top: 15%;
+    }
+
+    .sticker-heart {
+        right: 2%;
+        top: 13%;
+        width: 85px;
+    }
+
+    .sticker-cuddle {
+        left: 2%;
+        bottom: 8%;
+        width: 115px;
+    }
+
+    .sticker-flower {
+        right: 2%;
+        bottom: 8%;
+        width: 100px;
+    }
+
+}

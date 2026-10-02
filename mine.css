@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f5,
+            #ffe4ec,
+            #fff7fa
+        );
+
+    font-family: 'Quicksand', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+
+.heart {
+    position: absolute;
+
+    color: #e889a3;
+    font-size: 35px;
+
+    opacity: 0.45;
+
+    animation: floatHeart 8s linear infinite;
+}
+
+
+.heart:nth-child(1) {
+    left: 8%;
+    bottom: -50px;
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    left: 25%;
+    bottom: -70px;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(3) {
+    left: 55%;
+    bottom: -50px;
+    animation-delay: 4s;
+}
+
+.heart:nth-child(4) {
+    left: 78%;
+    bottom: -70px;
+    animation-delay: 1s;
+}
+
+.heart:nth-child(5) {
+    left: 90%;
+    bottom: -50px;
+    animation-delay: 5s;
+}
+
+.heart:nth-child(6) {
+    left: 40%;
+    bottom: -70px;
+    animation-delay: 3s;
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.mine-page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    position: relative;
+    z-index: 5;
+}
+
+
+/* =========================
+   BUBU DUDU STICKER
+========================= */
+
+.sticker {
+    width: 190px;
+    height: 190px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 5px;
+}
+
+
+.sticker img {
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   SMALL TEXT
+========================= */
+
+.small-text {
+    font-family: 'Quicksand', sans-serif;
+
+    font-size: 15px;
+
+    color: #9b6875;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   MAIN QUESTION
+========================= */
+
+h1 {
+    font-family: 'Caveat', cursive;
+
+    font-size: clamp(48px, 8vw, 72px);
+
+    color: #e889a3;
+
+    font-weight: 700;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 3px 12px rgba(232, 137, 163, 0.18);
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
+
+    min-height: 55px;
+}
+
+
+.yes-btn,
+.no-btn {
+    border: none;
+
+    padding: 12px 28px;
+
+    border-radius: 30px;
+
+    font-family: 'Quicksand', sans-serif;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+
+/* =========================
+   YES BUTTON
+========================= */
+
+.yes-btn {
+    background: #e889a3;
+
+    color: white;
+
+    box-shadow:
+        0 5px 15px rgba(232, 137, 163, 0.25);
+}
+
+
+.yes-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+
+    background: #d97898;
+
+    box-shadow:
+        0 8px 22px rgba(232, 137, 163, 0.38);
+}
+
+
+.yes-btn:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   NO BUTTON
+========================= */
+
+.no-btn {
+    background: white;
+
+    color: #9b6875;
+
+    border: 1px solid #f0cbd5;
+
+    position: relative;
+
+    box-shadow:
+        0 4px 12px rgba(232, 137, 163, 0.08);
+}
+
+
+.no-btn:hover {
+    transform: scale(1.04);
+
+    background: #fff8fa;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    min-height: 45px;
+
+    margin-top: 20px;
+
+    font-family: 'Caveat', cursive;
+
+    font-size: 29px;
+
+    color: #e889a3;
+}
+
+
+/* =========================
+   CONTINUE BUTTON
+========================= */
+
+.continue-btn {
+    display: none;
+
+    margin-top: 5px;
+
+    padding: 12px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #e889a3;
+
+    color: white;
+
+    font-family: 'Quicksand', sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(232, 137, 163, 0.22);
+
+    transition: all 0.3s ease;
+}
+
+
+.continue-btn.show {
+    display: inline-block;
+}
+
+
+.continue-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    background: #d97898;
+
+    box-shadow:
+        0 8px 20px rgba(232, 137, 163, 0.35);
+}
+
+
+.continue-btn:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .mine-page {
+        padding: 20px;
+    }
+
+
+    .sticker {
+        width: 150px;
+        height: 150px;
+    }
+
+
+    h1 {
+        font-size: 50px;
+    }
+
+
+    .small-text {
+        font-size: 14px;
+    }
+
+
+    .buttons {
+        gap: 12px;
+    }
+
+
+    .yes-btn,
+    .no-btn {
+        padding: 11px 22px;
+
+        font-size: 15px;
+    }
+
+
+    .message {
+        font-size: 26px;
+    }
+}
